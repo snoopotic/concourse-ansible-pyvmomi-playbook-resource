@@ -1,4 +1,4 @@
-# Concourse Ansible Playbook Resource
+# Concourse Ansible Playbook Resource with PyVmomi
 
 A [Concourse CI](https://concourse-ci.org) resource for running Ansible playbooks.
 
@@ -6,8 +6,10 @@ The resource image contains the latest version of ansible, installed by pip,
 as of when the image was created. It runs ansible with python 3.
 See the `Dockerfile` for other supplied system and pip packages.
 
-See [Docker Hub](https://cloud.docker.com/repository/docker/troykinsella/concourse-ansible-playbook-resource)
+See [Docker Hub](https://cloud.docker.com/repository/docker/snoopotic/concourse-ansible-pyvmomi-playbook-resource)
 for tagged image versions available.
+
+This is a fork of the originating [Concourse Ansible Playbook Ressource](https://github.com/troykinsella/concourse-ansible-playbook-resource) from Troy Kinsella but with additional python module "PyVmomi" as in my company we use the vmware_* ansible modules that have this requirement.
 
 ## Source Configuration
 
@@ -44,7 +46,7 @@ resource_types:
 - name: ansible-playbook
   type: docker-image
   source:
-    repository: troykinsella/concourse-ansible-playbook-resource
+    repository: snoopotic/concourse-ansible-pyvmomi-playbook-resource
     tag: latest
 
 resources:
